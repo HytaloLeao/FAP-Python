@@ -1,0 +1,38 @@
+# Definindo o dicionário para armazenar membros e suas tarefas
+equipe = {}
+
+# Função para adicionar um novo membro à equipe
+def adicionar_membro(nome):
+    if nome not in equipe:
+        equipe[nome] = []
+        print(f'Membro {nome} adicionado à equipe.')
+    else:
+        print(f'Membro {nome} já está na equipe')
+
+# Função para atribuir uma tarefa a um membro
+def atribuir_tarefa(nome, descricao):
+    if nome in equipe:
+        equipe[nome].append(descricao)
+        print(f'Tarefa "{descricao}" atrubuída a {nome}.')
+    else:
+        print(f'Membro {nome} não encontrado.')
+
+# Função para exibir o status da equipe e suas tarefas
+def exibir_tarefas():
+    for nome, tarefas in equipe.items():
+        print(f'Membro: {nome}')
+        for tarefa in tarefas:
+            print(f' - {tarefa}')
+
+# Exemplo de uso do sistema
+adicionar_membro('Ana')
+adicionar_membro('João')
+adicionar_membro('Lucas')
+
+atribuir_tarefa('Ana', 'Revisar documentos')
+atribuir_tarefa('João', 'Desenvolver cargos')
+atribuir_tarefa('Lucas', 'Testar aplicação')
+atribuir_tarefa('Ana', 'Preparar apresentação')
+
+print('\nstatus atual da equipe e suas tarefas:')
+exibir_tarefas()
